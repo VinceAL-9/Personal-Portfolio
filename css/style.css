@@ -33,7 +33,7 @@ a {
 .jumbotron {
   display: flex;
   align-items: center;
-  background-image: url('/resources/images/background.avif');
+  background-image: url('../resources/images/background.avif');
   background-size: cover;
   color: #ffffff;
   height: 400px;
