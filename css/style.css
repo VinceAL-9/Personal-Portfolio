@@ -428,3 +428,212 @@ button:focus {
     display: none;
   }
 }
+
+/* Certificate Cards Styles */
+
+.certificate-card {
+  background: rgba(64, 224, 208, 0.1);
+  border: 2px solid rgba(64, 224, 208, 0.3);
+  border-radius: 15px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(64, 224, 208, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.certificate-card:hover::before {
+  left: 100%;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(64, 224, 208, 0.3);
+  border-color: #40E0D0;
+  background: rgba(64, 224, 208, 0.15);
+}
+
+.certificate-icon {
+  margin: 0 auto 20px;
+  width: 60px;
+  height: 60px;
+  background: rgba(64, 224, 208, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover .certificate-icon {
+  background: rgba(64, 224, 208, 0.4);
+  transform: rotateY(360deg);
+}
+
+.certificate-card h5 {
+  color: #40E0D0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.certificate-card:hover h5 {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+}
+
+.course-provider {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.course-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.certificate-card .btn {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.certificate-card .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.certificate-card .btn:hover::before {
+  left: 100%;
+}
+
+.certificate-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(64, 224, 208, 0.4);
+}
+
+/* PDF Icon Animation */
+.certificate-icon svg {
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover .certificate-icon svg {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments for certificate cards */
+@media (max-width: 767.98px) {
+  .certificate-card {
+    margin-bottom: 20px;
+  }
+  
+  .certificate-card h5 {
+    font-size: 1.1rem;
+  }
+  
+  .certificate-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .certificate-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Alternative card layout for larger screens */
+@media (min-width: 1200px) {
+  .certificate-card {
+    min-height: 280px;
+  }
+}
+
+/* Loading animation for cards */
+.certificate-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.certificate-card:nth-child(1) { animation-delay: 0.1s; }
+.certificate-card:nth-child(2) { animation-delay: 0.2s; }
+.certificate-card:nth-child(3) { animation-delay: 0.3s; }
+.certificate-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* PDF viewer styles (optional - for inline viewing) */
+.pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  padding: 20px;
+}
+
+.pdf-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-container {
+  width: 90%;
+  height: 90%;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.pdf-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: #40E0D0;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.pdf-close:hover {
+  color: #ffffff;
+}
